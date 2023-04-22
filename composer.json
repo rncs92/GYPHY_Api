@@ -1,0 +1,17 @@
+{
+    "name": "janis/gyphy_api",
+    "autoload": {
+        "psr-4": {
+            "Giphy\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "rncs92",
+            "email": "123461096+rncs92@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    }
+}
