@@ -57,7 +57,7 @@ require_once('main.php');
             }
             ?>
             <?php else: ?>
-            <?php echo 'There are no trending GIFs'; ?>
+            <?php echo 'Something went wrong!'; ?>
             <?php endif; ?>
     <?php endif; ?>
 </body>
