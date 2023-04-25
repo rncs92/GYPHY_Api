@@ -10,12 +10,11 @@ require_once('main.php');
     <title>GIPHY World</title>
     <style>
         header {
-            background: #c9f9f8;
             padding: 2em;
             text-align: center;
         }
         body {
-            background: lightgray;
+            background-image: url(jon-moore-5fIoyoKlz7A-unsplash.jpg);
         }
         h2 {
             text-align: center;
@@ -30,15 +29,15 @@ require_once('main.php');
 
     <header>
 
-        <h1>Welcome to GIPHY!</h1>
+        <h1>GIPHY!</h1>
 
     </header>
 
     <form method="get" action="index.php">
-        <label for="search">Search GIF</label><br>
-        <input type="text" id="search" name="search"><br>
-        <label for="amount">Amount</label><br>
-        <input type="number" id="amount" name="amount"><br>
+        <label for="search"><strong>Search GIF</strong></label><br>
+        <input type="text" id="search" name="search" placeholder="Search"><br>
+        <label for="amount"><strong>Amount</strong></label><br>
+        <input type="number" id="amount" name="amount" placeholder="Amount"><br>
         <input type="submit" value="submit">
     </form>
     <?php if(!empty($gif)): ?>
@@ -53,7 +52,7 @@ require_once('main.php');
             <h2>Trending GIFs</h2>
             <?php
             foreach($trending as $filename) {
-                echo "<img src='{$filename->getUrl()}'>";
+                echo "<img src='{$filename->getUrl()}'>" . ' ';
             }
             ?>
     <?php endif; ?>
