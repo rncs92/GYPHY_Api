@@ -10,3 +10,4 @@ $client = new GiphyApi();
 $search = $_GET['search'] ?? '';
 $limit = $_GET['amount'] ?? 4;
 $gif = $client->searchGif($search, $limit);
+$trending = $client->showTrending();

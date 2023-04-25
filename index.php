@@ -14,6 +14,15 @@ require_once('main.php');
             padding: 2em;
             text-align: center;
         }
+        body {
+            background: lightgray;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -36,12 +45,17 @@ require_once('main.php');
         <ul>
             <?php
             foreach($gif as $filename) {
-                echo "<ul><img src='{$filename->getUrl()}'></ul>";
+                echo "<img src='{$filename->getUrl()}'>";
             }
             ?>
         </ul>
     <?php else: ?>
-        <p><strong>No GIFs found, please use the search!</strong></p>
+            <h2>Trending GIFs</h2>
+            <?php
+            foreach($trending as $filename) {
+                echo "<img src='{$filename->getUrl()}'>";
+            }
+            ?>
     <?php endif; ?>
 </body>
 </html>
