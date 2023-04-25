@@ -50,11 +50,15 @@ require_once('main.php');
         </ul>
     <?php else: ?>
             <h2>Trending GIFs</h2>
+            <?php if(!empty($trending)): ?>
             <?php
             foreach($trending as $filename) {
                 echo "<img src='{$filename->getUrl()}'>" . ' ';
             }
             ?>
+            <?php else: ?>
+            <?php echo 'There are no trending GIFs'; ?>
+            <?php endif; ?>
     <?php endif; ?>
 </body>
 </html>
