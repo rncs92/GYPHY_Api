@@ -1,7 +1,8 @@
 <?php
 
-namespace Giphy;
+namespace Giphy\Model;
 use GuzzleHttp\Client;
+
 class GiphyApi
 {
     private Client $client;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Giphy;
+namespace Giphy\Model;
 
 class GIF
 {
