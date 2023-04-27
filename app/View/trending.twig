@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIPHY!</title>
+</head>
+<header>
+    <h1>Giphy App</h1>
+    <link rel="stylesheet" href="/style/styles.css">
+</header>
+<body>
+<div class="gifs">
+    <form class="form" action="/" method="GET">
+        <br>
+        <label for="search"></label>
+        <input type="text" name="search" id="search" placeholder="Search" required>
+        <input class='button' type="submit" value="Search"><br>
+        <br>
+    </form>
+
+    <form class="form" action="/trending" method="GET">
+        <input class='button' type="submit" value="Trending GIFs"><br>
+        <br>
+    </form>
+</div>
+<br>
+{% if gifs == null %}
+    <h3>No gifs found!</h3>
+{% else %}
+    {% for gif in gifs %}
+            <img class="gif" src="{{ gif.url }}">
+    {% endfor %}
+{% endif %}
+</body>
+</html>

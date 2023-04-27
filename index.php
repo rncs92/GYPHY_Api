@@ -2,23 +2,19 @@
 
 require 'vendor/autoload.php';
 
-use Giphy\Model\GiphyApi;
-
-
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-$client = new GiphyApi();
 $search = $_GET['search'] ?? '';
 $limit = $_GET['amount'] ?? 4;
-$gif = $client->searchGif($search, $limit);
-$trending = $client->showTrending();
+
+$loader = new Twig\Loader\FilesystemLoader('app/View');
+$twig = new Twig\Environment($loader);
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+    $r->addRoute('GET', '/', [\Giphy\Controllers\Router::class, 'search']);
     $r->addRoute('GET', '/trending', [\Giphy\Controllers\Router::class, 'trending']);
-    $r->addRoute('GET', '/search', [\Giphy\Controllers\Router::class, 'search']);
-
 });
 
 // Fetch method and URI from somewhere
@@ -49,7 +45,6 @@ switch ($routeInfo[0]) {
         $controller = new $controllerName;
         $response = $controller->{$methodName}();
 
-        echo $response;
-
+        echo $twig->render('trending.twig', ['gifs' => $response]);
         break;
 }
