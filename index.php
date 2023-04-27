@@ -45,6 +45,6 @@ switch ($routeInfo[0]) {
         $controller = new $controllerName;
         $response = $controller->{$methodName}();
 
-        echo $twig->render('trending.twig', ['gifs' => $response]);
+        echo $twig->render('view.twig', ['gifs' => $response]);
         break;
 }
