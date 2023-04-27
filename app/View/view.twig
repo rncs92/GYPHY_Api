@@ -24,12 +24,12 @@
     </form>
 </div>
 <br>
-{% if gifs == null %}
-    <h3>No gifs found!</h3>
-{% else %}
-    {% for gif in gifs %}
-            <img class="gif" src="{{ gif.url }}">
-    {% endfor %}
-{% endif %}
+    {% if gifs == null %}
+        <h3>No gifs found!</h3>
+        {% else %}
+            {% for gif in gifs %}
+                <img class="gif" src="{{ gif.url }}">
+            {% endfor %}
+    {% endif %}
 </body>
 </html>
