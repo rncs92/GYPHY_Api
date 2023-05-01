@@ -5,12 +5,8 @@ require 'vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-$search = $_GET['search'] ?? '';
-$limit = $_GET['amount'] ?? 4;
-
 $loader = new Twig\Loader\FilesystemLoader('app/View');
 $twig = new Twig\Environment($loader);
-
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', [\Giphy\Controllers\Router::class, 'search']);
@@ -45,6 +41,6 @@ switch ($routeInfo[0]) {
         $controller = new $controllerName;
         $response = $controller->{$methodName}();
 
-        echo $twig->render('view.twig', ['gifs' => $response]);
+        echo $twig->render('view.html.twig', ['gifs' => $response]);
         break;
 }
